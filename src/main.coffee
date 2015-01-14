@@ -25,8 +25,10 @@ class ProgressBar
     else
       $("#ProgressBar").show()
 
+    @setPercent()
+
     $("#InnerProgressBar").velocity
-      width: 196
+      width: 200
     , 5000
 
     return
@@ -34,13 +36,20 @@ class ProgressBar
   stop: ->
     $("#InnerProgressBar").velocity("stop", true)
     $("#InnerProgressBar").velocity
-      width: 196
+      width: 200
     ,
 
       # Log all the animated divs.
       complete: (elements) ->
         $("#InnerProgressBar").velocity("stop", true)
         $("#InnerProgressBar").css("width", 24)
+        clearInterval(@percentageInterval)
         $("#ProgressBar").hide()
 
         return
+
+  setPercent: ->
+    @percentageInterval = setInterval(=>
+      p = parseInt($("#InnerProgressBar").outerWidth(true) / 2)
+      $("#Percentage").html(p + "%")
+    , 100)

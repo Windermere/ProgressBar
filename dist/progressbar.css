@@ -2,14 +2,14 @@
   border: 1px solid #c3c3c2;
   background: #fff;
   padding: 7px;
-  width: 230px;
+  width: 234px;
   font-size: 12px;
 }
 #ProgressBar #InnerProgressGutter {
   float: left;
   position: relative;
   height: 14px;
-  width: 196px;
+  width: 200px;
   background: #e6e6e6;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;

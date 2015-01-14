@@ -21,22 +21,34 @@ ProgressBar = (function() {
     } else {
       $("#ProgressBar").show();
     }
+    this.setPercent();
     $("#InnerProgressBar").velocity({
-      width: 196
+      width: 200
     }, 5000);
   };
 
   ProgressBar.prototype.stop = function() {
     $("#InnerProgressBar").velocity("stop", true);
     return $("#InnerProgressBar").velocity({
-      width: 196
+      width: 200
     }, {
       complete: function(elements) {
         $("#InnerProgressBar").velocity("stop", true);
         $("#InnerProgressBar").css("width", 24);
+        clearInterval(this.percentageInterval);
         $("#ProgressBar").hide();
       }
     });
+  };
+
+  ProgressBar.prototype.setPercent = function() {
+    return this.percentageInterval = setInterval((function(_this) {
+      return function() {
+        var p;
+        p = parseInt($("#InnerProgressBar").outerWidth(true) / 2);
+        return $("#Percentage").html(p + "%");
+      };
+    })(this), 100);
   };
 
   return ProgressBar;
