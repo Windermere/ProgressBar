@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+  <title>ProgressBar</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" />
+
+  <!-- build:css app.css -->
+
+  <!-- bower:css -->
+
+  <!-- endbower -->
+
+  <!-- endbuild -->
+
+</head>
+
+<body>
+
+  <!-- jQuery is assumed to be sourced -->
+  <script src="//code.jquery.com/jquery-1.9.0.min.js"></script>
+
+  <!-- build:js app.js -->
+
+  <!-- bower:js -->
+
+  <!-- endbower -->
+
+  <!-- Main Entry File -->
+  <script src="dist/main.js"></script>
+
+  <!-- endbuild -->
+
+  <script>
+    var pb = new ProgressBar({
+      name: "pbandj",
+      displayNode: $("body")
+    });
+
+    console.log(pb);
+  </script>
+
+</body>
+</html>
