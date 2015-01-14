@@ -15,11 +15,11 @@ ProgressBar = (function() {
     if (this.options.displayNode === undefined) {
       alert('Please specify a displayNode.');
     }
-    if ($("ProgressBar").length === 0) {
+    if ($("#ProgressBar").length === 0) {
       markup = '<div id="ProgressBar"> <div id="InnerProgressGutter"> <div id="InnerProgressBar"></div> </div> <div id="Percentage"> 0% </div> <div style="clear: both;"></div> </div>';
       this.options.displayNode.append(markup);
     } else {
-      $("ProgressBar").show();
+      $("#ProgressBar").show();
     }
     $("#InnerProgressBar").velocity({
       width: 196
@@ -33,6 +33,7 @@ ProgressBar = (function() {
     }, {
       complete: function(elements) {
         $("#InnerProgressBar").velocity("stop", true);
+        $("#InnerProgressBar").css("width", 24);
         $("#ProgressBar").hide();
       }
     });

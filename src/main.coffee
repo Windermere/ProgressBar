@@ -9,7 +9,7 @@ class ProgressBar
   display: ->
     alert('Please specify a displayNode.')  if @options.displayNode is `undefined`
 
-    if $("ProgressBar").length is 0
+    if $("#ProgressBar").length is 0
       markup = '
         <div id="ProgressBar">
           <div id="InnerProgressGutter">
@@ -23,7 +23,7 @@ class ProgressBar
       '
       @options.displayNode.append(markup)
     else
-      $("ProgressBar").show()
+      $("#ProgressBar").show()
 
     $("#InnerProgressBar").velocity
       width: 196
@@ -40,5 +40,7 @@ class ProgressBar
       # Log all the animated divs.
       complete: (elements) ->
         $("#InnerProgressBar").velocity("stop", true)
+        $("#InnerProgressBar").css("width", 24)
         $("#ProgressBar").hide()
+
         return
