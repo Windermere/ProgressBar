@@ -59,13 +59,13 @@ module.exports = function(grunt) {
       css: {
         files: [{
           src: ['build/app.css'],
-          dest: 'build/<%= pkg.name %>-<%= pkg.version %>.min.css'
+          dest: 'build/<%= pkg.name %>.<%= pkg.version %>.min.css'
         }]
       },
       js: {
         files: [{
           src: ['build/app.js'],
-          dest: 'build/<%= pkg.name %>-<%= pkg.version %>.min.js'
+          dest: 'build/<%= pkg.name %>.<%= pkg.version %>.min.js'
         }]
       }
     },

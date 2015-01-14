@@ -6,11 +6,16 @@
   <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
   <title>ProgressBar</title>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" />
+  <style>
+    body {
+      padding: 50px;
+      background: #dcdcdc;
+    }
+  </style>
 
   <!-- build:css app.css -->
-
+  <link rel="stylesheet" href="dist/progressbar.css" />
   <!-- bower:css -->
-
   <!-- endbower -->
 
   <!-- endbuild -->
@@ -25,7 +30,8 @@
   <!-- build:js app.js -->
 
   <!-- bower:js -->
-
+  <script src="bower_components/velocity/velocity.js"></script>
+  <script src="bower_components/velocity/velocity.ui.js"></script>
   <!-- endbower -->
 
   <!-- Main Entry File -->
@@ -39,7 +45,7 @@
       displayNode: $("body")
     });
 
-    console.log(pb);
+    pb.display();
   </script>
 
 </body>
