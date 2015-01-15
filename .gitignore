@@ -1,6 +1,8 @@
 node_modules/
 bower_components/
 .idea/
+.sass-cache/
+.tmp/
 atlassian-ide-plugin.xml
 
 # Mac
