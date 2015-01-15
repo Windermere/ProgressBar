@@ -97,8 +97,7 @@ module.exports = function(grunt) {
   'concat',
   'uglify',
   'cssmin',
-  'rename',
-  'wrap'
+  'rename'
   ]);
 
 };

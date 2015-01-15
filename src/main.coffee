@@ -3,6 +3,11 @@ class ProgressBar
     @name = options.name
     defaults =
       displayNode: undefined
+      initialVelocity: 5000
+      cssObject:
+        width: 234
+        top: 0
+        left: 0
 
     @options = $.extend({} , defaults, options)
 
@@ -22,14 +27,15 @@ class ProgressBar
         </div>
       '
       @options.displayNode.append(markup)
+      $("#ProgressBar").css(@options.cssObject)
     else
-      $("#ProgressBar").show()
+      $("#ProgressBar").css("visibility", "visible")
 
     @setPercent()
 
     $("#InnerProgressBar").velocity
       width: 200
-    , 5000
+    , @options.initialVelocity
 
     return
 
@@ -44,7 +50,7 @@ class ProgressBar
         $("#InnerProgressBar").velocity("stop", true)
         $("#InnerProgressBar").css("width", 24)
         clearInterval(@percentageInterval)
-        $("#ProgressBar").hide()
+        $("#ProgressBar").css("visibility", "hidden")
 
         return
 

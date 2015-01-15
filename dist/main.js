@@ -5,7 +5,13 @@ ProgressBar = (function() {
     var defaults;
     this.name = options.name;
     defaults = {
-      displayNode: void 0
+      displayNode: void 0,
+      initialVelocity: 5000,
+      cssObject: {
+        width: 234,
+        top: 0,
+        left: 0
+      }
     };
     this.options = $.extend({}, defaults, options);
   }
@@ -18,13 +24,14 @@ ProgressBar = (function() {
     if ($("#ProgressBar").length === 0) {
       markup = '<div id="ProgressBar"> <div id="InnerProgressGutter"> <div id="InnerProgressBar"></div> </div> <div id="Percentage"> 0% </div> <div style="clear: both;"></div> </div>';
       this.options.displayNode.append(markup);
+      $("#ProgressBar").css(this.options.cssObject);
     } else {
-      $("#ProgressBar").show();
+      $("#ProgressBar").css("visibility", "visible");
     }
     this.setPercent();
     $("#InnerProgressBar").velocity({
       width: 200
-    }, 5000);
+    }, this.options.initialVelocity);
   };
 
   ProgressBar.prototype.stop = function() {
@@ -36,7 +43,7 @@ ProgressBar = (function() {
         $("#InnerProgressBar").velocity("stop", true);
         $("#InnerProgressBar").css("width", 24);
         clearInterval(this.percentageInterval);
-        $("#ProgressBar").hide();
+        $("#ProgressBar").css("visibility", "hidden");
       }
     });
   };

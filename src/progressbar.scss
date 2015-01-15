@@ -1,4 +1,6 @@
 #ProgressBar {
+  position: absolute;
+  z-index: 1000;
   border: 1px solid #c3c3c2;
   background: #fff;
   padding: 7px;

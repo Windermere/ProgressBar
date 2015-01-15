@@ -42,7 +42,10 @@
   <script>
     var pb = new ProgressBar({
       name: "pbandj",
-      displayNode: $("body")
+      displayNode: $("body"),
+      cssObject: {
+        width: 500
+      }
     });
 
     pb.display();
