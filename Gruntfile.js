@@ -71,8 +71,8 @@ module.exports = function(grunt) {
     },
     wrap: {
       basic: {
-        src: ['build/<%= pkg.name %>-<%= pkg.version %>.min.js'],
-        dest: 'build/<%= pkg.name %>-<%= pkg.version %>.min.js',
+        src: ['build/<%= pkg.name %>.<%= pkg.version %>.min.js'],
+        dest: 'build/<%= pkg.name %>.<%= pkg.version %>.min.js',
         options: {
           wrapper: ['(function($) {\n', '\n}).call(window.jQuery)']
         }
