@@ -26,7 +26,8 @@ class ProgressBar
           <div style="clear: both;"></div>
         </div>
       '
-      @options.displayNode.append(markup)
+
+      $(@options.displayNode).append(markup)
       $("#ProgressBar").css(@options.cssObject)
     else
       $("#ProgressBar").css("visibility", "visible")

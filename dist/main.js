@@ -23,7 +23,7 @@ ProgressBar = (function() {
     }
     if ($("#ProgressBar").length === 0) {
       markup = '<div id="ProgressBar"> <div id="InnerProgressGutter"> <div id="InnerProgressBar"></div> </div> <div id="Percentage"> 0% </div> <div style="clear: both;"></div> </div>';
-      this.options.displayNode.append(markup);
+      $(this.options.displayNode).append(markup);
       $("#ProgressBar").css(this.options.cssObject);
     } else {
       $("#ProgressBar").css("visibility", "visible");
