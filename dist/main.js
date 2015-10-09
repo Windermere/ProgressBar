@@ -53,6 +53,10 @@ ProgressBar = (function() {
       return function() {
         var p;
         p = parseInt($("#InnerProgressBar").outerWidth(true) / 2);
+        if (p > 97) {
+          $("#InnerProgressBar").velocity("stop");
+          clearInterval(_this.percentageInterval);
+        }
         return $("#Percentage").html(p + "%");
       };
     })(this), 100);

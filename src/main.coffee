@@ -58,5 +58,8 @@ class ProgressBar
   setPercent: ->
     @percentageInterval = setInterval(=>
       p = parseInt($("#InnerProgressBar").outerWidth(true) / 2)
+      if p > 97
+        $("#InnerProgressBar").velocity("stop");
+        clearInterval(@percentageInterval)
       $("#Percentage").html(p + "%")
     , 100)
