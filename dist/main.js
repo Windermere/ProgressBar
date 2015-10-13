@@ -6,7 +6,7 @@ ProgressBar = (function() {
     this.name = options.name;
     defaults = {
       displayNode: void 0,
-      initialVelocity: 5000,
+      initialVelocity: 15000,
       cssObject: {
         width: 234,
         top: 0,
@@ -35,17 +35,22 @@ ProgressBar = (function() {
   };
 
   ProgressBar.prototype.stop = function() {
-    $("#InnerProgressBar").velocity("finish", true);
-    return $("#InnerProgressBar").velocity({
-      width: 200
-    }, {
-      complete: function(elements) {
+    $("#InnerProgressBar").velocity("finish");
+    return setTimeout((function(_this) {
+      return function() {
         $("#InnerProgressBar").velocity("stop", true);
-        $("#InnerProgressBar").css("width", 24);
-        clearInterval(this.percentageInterval);
-        $("#ProgressBar").css("visibility", "hidden");
-      }
-    });
+        return $("#InnerProgressBar").velocity({
+          width: 200
+        }, {
+          complete: function(elements) {
+            $("#InnerProgressBar").velocity("stop", true);
+            $("#InnerProgressBar").css("width", 24);
+            clearInterval(this.percentageInterval);
+            $("#ProgressBar").css("visibility", "hidden");
+          }
+        });
+      };
+    })(this), 250);
   };
 
   ProgressBar.prototype.setPercent = function() {

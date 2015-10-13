@@ -3,7 +3,7 @@ class ProgressBar
     @name = options.name
     defaults =
       displayNode: undefined
-      initialVelocity: 5000
+      initialVelocity: 15000
       cssObject:
         width: 234
         top: 0
@@ -42,18 +42,21 @@ class ProgressBar
 
   stop: ->
     $("#InnerProgressBar").velocity("finish")
-    $("#InnerProgressBar").velocity
-      width: 200
-    ,
+    setTimeout(=>
+      $("#InnerProgressBar").velocity("stop", true)
+      $("#InnerProgressBar").velocity
+        width: 200
+      ,
+        # Log all the animated divs.
+        complete: (elements) ->
+          $("#InnerProgressBar").velocity("stop", true)
+          $("#InnerProgressBar").css("width", 24)
+          clearInterval(@percentageInterval)
+          $("#ProgressBar").css("visibility", "hidden")
 
-      # Log all the animated divs.
-      complete: (elements) ->
-        $("#InnerProgressBar").velocity("stop", true)
-        $("#InnerProgressBar").css("width", 24)
-        clearInterval(@percentageInterval)
-        $("#ProgressBar").css("visibility", "hidden")
+          return
+    , 250)
 
-        return
 
   setPercent: ->
     @percentageInterval = setInterval(=>
